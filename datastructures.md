@@ -1,5 +1,5 @@
 ```
-##1 count of given element in a linked list 
+## 1 count of given element in a linked list 
 #include<stdio.h>
 #include<stdlib.h>
 struct node
