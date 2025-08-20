@@ -1,6 +1,6 @@
 
 # 1 count of given element in a linked list 
-```
+```c
 #include<stdio.h>
 #include<stdlib.h>
 struct node
