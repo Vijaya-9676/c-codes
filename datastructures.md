@@ -1,5 +1,5 @@
-```
-## 1 count of given element in a linked list 
+
+# 1 count of given element in a linked list 
 ```
 #include<stdio.h>
 #include<stdlib.h>
@@ -66,5 +66,4 @@ int countele(struct node *start,int ele)
 1 -> 3 -> 3 -> 4 -> 3 -> 5 -> NULL
 sum:19
 3
-```
 ```
