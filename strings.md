@@ -1,5 +1,5 @@
-'''c
-##length of largest substring without repeating characters 
+#length of largest substring without repeating characters 
+```c
 #include<stdio.h>
 #include<string.h>
 int lengthoflargestsubstring(char *s);
@@ -29,4 +29,4 @@ int lengthoflargestsubstring(char *s)
         }
         return maxlength;
 }
-'''
+```
