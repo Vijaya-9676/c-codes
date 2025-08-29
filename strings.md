@@ -133,7 +133,7 @@ void palsubstring(char *str,char *result)
 }
 ```
 # output
-```c
+```
 Enter string:abcdabcbadefgh
 dabcbad
 ```
@@ -207,7 +207,7 @@ int ismatch(char open,char close)
 }
 ```                
 # output
-```c
+```
 Enter a string:{([<>])}
 Valid String
 ```
@@ -248,7 +248,7 @@ int main()
 }
 ```
 # output
-```c
+```
 Enter no.of strings:4
 Enter string :Telugu
 Enter string :Hindi
@@ -368,6 +368,10 @@ return i;
 return -1;
 }
 ```
+# output
+```
+3
+```
 # 10.Frequency of each character in a string
 ```c
 #include<stdio.h>
@@ -426,6 +430,22 @@ int main()
         }
         printf("count of words in the string:%d\n",count);
 }
+                            OR
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+char s[]="good food";
+int len=strlen(s),count=0;
+for(int i=0;i<len;i++)
+{
+        if((s[i]!=' '&&s[i+1]==' ')||(s[i]!=' '&&s[i+1]=='\0'))
+        {
+           count++;
+        }
+}
+printf("%d\n",count);
+}
 ```
 # output
 ```
@@ -470,9 +490,125 @@ int main()
 }
 ```
 # output
-```c
+```
 Enter a string:This is c programming
 Enter the word to be removed:is
 This  c programming
 ```
-                               
+# 13.High frequency character in a string 
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100]="latha likes cooking oo";
+        char maxchar;
+        int freq[256]={0};
+        int i,maxfreq=0;
+        for(i=0;str[i]!='\0';i++)
+        {
+                freq[(unsigned char)str[i]]++;
+        }
+        for(i=0;i<256;i++)
+        {
+                if(freq[i]>maxfreq)
+                {
+                        maxfreq=freq[i];
+                        maxchar=i;
+                }
+        }
+        printf("maximum frequency char:%c\n",maxchar);
+}       
+```                               
+# output
+```
+maximum frequency char:o
+```
+# 14.Removing a particular character from a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100]="programming";
+        int i,j=0;
+        char s[50];
+        char ch='a';
+        for(i=0;str[i]!='\0';i++)
+        {
+                if(str[i]!=ch)
+                {
+                        s[j++]=str[i];
+                }
+        }
+        printf("%s\n",s);
+}
+```
+# output
+```
+progrmming
+```
+# 15.Sorting a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char s[]="AppLe";
+        int len=strlen(s);
+        for(int i=0;i<len-1;i++)
+        {
+          for(int j=0;j<len-i-1;j++)
+          {
+                  if(s[j]>s[j+1])
+                  {
+                          char temp=s[j];
+                          s[j]=s[j+1];
+                          s[j+1]=temp;
+                  }
+          }
+        }
+        printf("%s\n",s);
+}
+```
+# output
+```
+ALepp
+```
+# 16.Length of a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char s[50];
+        fgets(s,sizeof(s),stdin);
+        s[strcspn(s,"\n")]='\0';
+        printf("%s",s);
+        int i=0;
+        while(s[i]!='\0')
+        {
+                i++;
+        }
+        printf("%d\n",i);
+}
+```
+# output
+```
+vijaya
+6
+```
+# 17.Reversing a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char s[]="preethi";
+        int len=strlen(s);
+        for(int i=len-1;i>=0;i--)
+        {
+                printf("%c\n",s[i]);
+        }
+}
+```
