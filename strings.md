@@ -612,3 +612,78 @@ int main()
         }
 }
 ```
+# output 
+```
+code
+edoc
+```
+# 18.Extracting a substring from the given string
+```c
+#include<stdio.h>
+#include<string.h>
+void extract(char *str,int start,int length,char *res);
+int main()
+{
+        char str[]="Hello, World!";
+        int start=7;
+        int length=5;
+        char substr[100];
+        extract(str,start,length,substr);
+        printf("Extrcted substring: %s\n",substr);
+}
+void extract(char *str,int start,int length,char *res)
+{
+        int i;
+        for(i=0;i<length,str[start+i]!='\0';i++)
+        {
+         res[i]=str[start+i];
+        }
+        res[i]='\0';
+}
+```
+# output
+```
+Extrcted substring: World!
+```
+# 19.Finding if the given substring is present in the string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100]="world war peace";
+        char substr[100]="pea";
+        if(strstr(str,substr)!=NULL)
+        {
+                printf("%s found\n",substr);
+        }
+        else
+        {
+                printf("string not found");
+        }
+}
+```
+# 20.Finding the presence of substring in a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[100]="world war peace";
+        char substr[100]="pea";
+        if(strstr(str,substr)!=NULL)
+        {
+                printf("%s found\n",substr);
+        }
+        else
+        {
+                printf("string not found");
+        }
+}
+```
+# output
+```
+pea found
+```
+
+
