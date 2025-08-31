@@ -566,7 +566,24 @@ int main()
 Enter a and b values:5 3
 15
 ```
-# 26.Sparse or not
+# 26.To reset the last two bits of a number
+```c
+#include<stdio.h>
+int main()
+{
+        int num;
+        printf("Enter a number:");
+        scanf("%d",&num);
+        num= num & ~(0x3);
+        printf("%d\n",num);
+}
+```
+# output
+```c
+Enter a number:7
+4
+```
+
 
 
 
