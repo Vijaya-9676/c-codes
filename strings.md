@@ -685,5 +685,75 @@ int main()
 ```
 pea found
 ```
+# 21.Reversing the positions of words in a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[]="viven embedded academy";
+        int i=0,j=0;
+        int end=strlen(str)-1;
+        for(i=end;i>=0;i--)
+        {
+                if(str[i]==' ')
+                {
+                        for(j=i+1;j<=end;j++)
+                        {
+                                printf("%c",str[j]);
+                        }
+                        printf(" ");
+                        end=i-1;
+                }
+        
+
+        }
+        for(j=0;j<=end;j++)
+        {
+                printf("%c",str[j]);
+        }
+        printf("\n");
+}
+```
+# output
+```
+Language Programming C
+```
+# 22.Reversing each word in a string
+```c
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+        char str[]="viven embedded academy";
+        int i=0,j=0;
+        int len=strlen(str);
+        int end=len-1;
+        int start=0;
+        while(str[i]!='\0')
+        {
+                if(str[i]!=' ')
+                {
+                   i++;
+                }
+                else
+                {
+                for(j=i-1;j>=start;j--)
+                {
+                        printf("%c",str[j]);
+                }
+                printf(" ");
+                i++;
+                start=i;
+                }
+        }
+        printf("\n");
+}
+```
+# output
+```
+neviv deddebme
+```
+
 
 
