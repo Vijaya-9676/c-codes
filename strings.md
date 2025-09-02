@@ -34,7 +34,7 @@ int lengthoflargestsubstring(char *s)
 ```
 5
 ```
-# 2.length of longest coomon subsequence  
+# 2.length of longest common subsequence  
 ```c
 #include<stdio.h>
 #include<string.h>
