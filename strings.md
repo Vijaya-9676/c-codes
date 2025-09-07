@@ -754,6 +754,50 @@ int main()
 ```
 neviv deddebme
 ```
+# 23.Permutations of a string
+```c
+#include<stdio.h>
+#include<string.h>
+void swap(char *x,char *y);
+void permute(char *str,int left,int right);
+int main()
+{
+        char str[100];
+        printf("Enter a string:");
+        scanf("%s",str);
+        int len=strlen(str);
+        permute(str,0,len-1);
+        printf("\n");
+}
+void swap(char *x,char *y)
+{
+        char temp=*x;
+        *x=*y;
+        *y=temp;
+}
+void permute(char *str,int left,int right)
+{
+        if(left==right)
+        {
+                printf("%s ",str);
+        }
+        else
+        {
+                for(int i=left;i<=right;i++)
+                {
+                        swap(&str[left],&str[i]);
+                        permute(str,left+1,right);
+                        swap(&str[left],&str[i]);
+                }
+        }
+}
+```
+# output
+```
+Enter a string:abc
+abc acb bac bca cba cab 
+```
+
 
 
 
