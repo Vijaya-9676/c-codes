@@ -507,7 +507,352 @@ struct node *maxend(struct node *start)
 10->40->51->20->NULL
 10->40->20->51->NULL
 ```
+# 8.Min element to the start of the list
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int info;
+        struct node *next;
+};
+struct node *create(int data);
+void display(struct node *start);
+struct node *minstart(struct node *start);
+int main()
+{
+        struct node *start;
+        start=create(55);
+        start->next=create(29);
+        start->next->next=create(48);
+        start->next->next->next=create(10);
+        start->next->next->next->next=create(70);
+        display(start);
+        display(minstart(start));
+}
+struct node *create(int data)
+{
+        struct node *newnode=(struct node *)malloc(sizeof(struct node));
+        newnode->info=data;
+        newnode->next=NULL;
+        return newnode;
+}
+void display(struct node *start)
+{
+        struct node *temp=start;
+        while(temp)
+        {
+                printf("%d->",temp->info);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+}
+struct node *minstart(struct node *start)
+{
+        struct node *min=start;
+        int temp;
+        struct node *ptr=start->next;
+        while(ptr)
+        {
+                if(ptr->info < min->info)
+                {
+                  temp=ptr->info;
+                  ptr->info=min->info;
+                  min->info=temp;
+                }
+                ptr=ptr->next;
+        }
+        return start;
+}
+```
+# output
+```
+55->29->48->10->70->NULL
+10->55->48->29->70->NULL
+```
+# 9.Deleting the last node and adding it in the beginning of list */
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+        int info;
+        struct node *next;
+};
+struct node *create(int data);
+void display(struct node *strat);
+struct node *delbeg(struct node *start,int *first);
+struct node *addend(struct node *start,int *first);
+int main()
+{
+        struct node *start;
+        start=create(10);
+        start->next=create(20);
+        start->next->next=create(30);
+        start->next->next->next=create(40);
+        start->next->next->next->next=create(50);
+        display(start);
+        int first;
+        start=delbeg(start,&first);
+        display(start);
+        start=addend(start,&first);
+        display(start);
+}
+struct node *create(int data)
+{
+        struct node *newnode=(struct node*)malloc(sizeof(struct node));
+        newnode->info=data;
+        newnode->next=NULL;
+        return newnode;
+}
+void display(struct node *start)
+{
+        struct node *temp=start;
+        while(temp)
+        {
+                printf("%d->",temp->info);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+}
+struct node *delbeg(struct node *start,int *first)
+{
+        if(start==NULL)
+        {
+                printf("List is empty\n");
+                return;
+        }
+         *first=start->info;
+         struct node *temp=start;
+         start=temp->next;
+         free(temp);
+         temp=NULL;
+         return start;
+}
+struct node *addend(struct node *start,int *first)
+{
+   struct node *ptr=start;
+   struct node *new=(struct node*)malloc(sizeof(struct node));
+   while(ptr->next)
+   {
+           ptr=ptr->next;
+   }
+   ptr->next=new;
+   new->info=*first;
+   new->next=NULL;
+   return start;
+}
+```
+# output
+```
+10->20->30->40->50->NULL
+20->30->40->50->NULL
+20->30->40->50->10->NULL
+```
+# 10.Deleting the last node and adding it at the beginning of list */
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int info;
+        struct node *next;
+};
+struct node *create(int data);
+void display(struct node *start);
+struct node *delend(struct node *start,int *last);
+struct node *addbeg(struct node *start,int *last);
+int main()
+{
+        struct node *start;
+        start=create(10);
+        start->next=create(20);
+        start->next->next=create(30);
+        start->next->next->next=create(40);
+        start->next->next->next->next=create(50);
+        display(start);
+        int last;
+        start=delend(start,&last);
+        display(start);
+        start=addbeg(start,&last);
+        display(start);
+}
+struct node *create(int data)
+{
+        struct node *node=(struct node*)malloc(sizeof(struct node));
+        node->info=data;
+        node->next=NULL;
+        return node;
+}
+void display(struct node * start)
+{
+        struct node *temp=start;
+        while(temp)
+        {
+                printf("%d->",temp->info);
+                temp=temp->next;
+        }
+        printf("NUlL\n");
+}
+struct node *delend(struct node *start,int *last)
+{
+        struct node *ptr=start,*prev;
+        while(ptr->next)
+        {
+          prev=ptr;
+          ptr=ptr->next;
+        }
+        *last=ptr->info;
+        free(ptr);
+        ptr=NULL;
+        prev->next=NULL;
+        return start;
+}
+struct node *addbeg(struct node *start,int *last)
+{
+        struct node *temp=start;
+        struct node *newnode=(struct node *)malloc(sizeof(struct node));
+        newnode->info=*last;
+        newnode->next=temp;
+        start=newnode;
+        return start;
+}
+```
+# outut
+```
+10->20->30->40->50->NUlL
+10->20->30->40->NUlL
+50->10->20->30->40->NUlL
+```
+# 11.Printing the elements of a linked list in reverse order
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int info;
+        struct node *next;
+};
+struct node *create(int data);
+void display(struct node *start);
+void revprint(struct node *start);
+int main()
+{
+   struct node *start;
+   start=create(10);
+   start->next=create(20);
+   start->next->next=create(30);
+   start->next->next->next=create(40);
+   start->next->next->next->next=create(50);
+   display(start);
+   revprint(start);
+   printf("NULL\n");
+}
+struct node *create(int data)
+{
+        struct node *node=(struct node *)malloc(sizeof(struct node));
+        node->info=data;
+        node->next=NULL;
+        return node;
+}
+void display(struct node *start)
+{
+        struct node *temp=start;
+        while(temp)
+        {
+                printf("%d->",temp->info);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+}
+void revprint(struct node *start)
+{
+        if(!start)
+        {
+                return;
+        }
+        revprint(start->next);
+        printf("%d->",start->info);
+}
+```
+# output
+```
+10->20->30->40->50->NULL
+50->40->30->20->10->NULL
+```
+# 12.Sorting a linked list
+```c
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+        int info;
+        struct node *next;
+};
+struct node *create(int data);
+void display(struct node *start);
+void sort(struct node *start);
+int main()
+{
+        struct node *start;
+        start=create(40);
+        start->next=create(5);
+        start->next->next=create(10);
+        start->next->next->next=create(50);
+        start->next->next->next->next=create(55);
+        display(start);
+        sort(start);
+        display(start);
+}
+struct node *create(int data)
+{
+        struct node *newnode=(struct node*)malloc(sizeof(struct node));
+        newnode->info=data;
+        newnode->next=NULL;
+        return newnode;
+}
+void display(struct node *start)
+{
+        struct node *temp=start;
+        while(temp)
+        {
+                printf("%d->",temp->info);
+                temp=temp->next;
+        }
+        printf("NULL\n");
+}
+void sort(struct node *start)
+{
+      struct node *i,*j;
+      int temp;
+      for(i=start;i->next!=NULL;i=i->next)
+      {
+              for(j=i->next;j!=NULL;j=j->next)
+              {
+                      if(i->info>j->info)
+                      {
+                              temp=i->info;
+                              i->info=j->info;
+                              j->info=temp;
+                      }
+              }
+      }
 
+
+}
+```
+# output
+```
+40->5->10->50->55->NULL
+5->10->40->50->55->NULL
+```
+
+
+
+
+
+
+        
                 
 
 
