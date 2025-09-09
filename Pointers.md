@@ -511,6 +511,707 @@ void fun1(int d)
 A
 8.500000
 ```
+# 19.
+```
+#include<stdio.h>
+int main()
+{
+        int a,b=10;
+        a=-b--;
+        printf("a=%d,b=%d",a,b);
+}
+```
+# output
+```
+a=-10,b=9
+```
+# 20.
+```
+#include<stdio.h>
+int main()
+{
+        int array[5][5];
+        printf("%d",((array==*array)&&(*array==array[0])));
+}
+```
+# output
+```
+1
+```
+# 20.
+```
+#include<stdio.h>
+int func()
+{
+int num=10;
+return &num;
+}
+int main()
+{
+int *p=func();
+printf("%d",*p);
+}
+```
+# output
+```
+segmentatult(core dumped)
+```
+# 21.
+```
+#include<stdio.h>
+int main()
+{
+        char *s[]={"knowledge","is","power"};
+        char **ptr[]={s+2,s+1,s};
+        char ***pptr=ptr;
+        printf("%s",**++pptr);
+        printf("%s",*--*++pptr+3);
+        printf("%s",**pptr+1);
+}
+```
+# output
+```
+is�����
+```
+## PROGRAMS
+# 22.Length of stringg using pointers
+```
+#include<stdio.h>
+int len(char *s);
+int main()
+{
+char *s[20];
+printf("Enter a string:");
+gets(s);
+printf("%d\n",len(s));
+}
+int len(char *s)
+{
+char *ptr=s;
+while(*ptr != '\0')
+{
+ptr++;
+}
+return ptr-s;
+}
+```
+# output
+```
+Enter a string:programming
+11
+```
+# 23.Min and max elements using pointers
+```
+#include<stdio.h>
+int main()
+{
+int arr[5]={2,12,4,5,3};
+int min,max;
+minmax(arr,&min,&max);
+printf("%d %d\n",min,max);
+}
+int minmax(int *arr,int *min,int *max)
+{
+*min=arr[0];
+*max=arr[0];
+int *ptr=arr;
+for(int i=0;i<5;i++)
+{
+if(*(ptr+i)<*min)
+{
+*min=*(ptr+i);
+}
+if(*(ptr+i)>*max)
+{
+*max=*(ptr+i);
+}
+}
+}
+```
+# output
+```
+2 12
+```
+# 24.Reversing a string using pointers
+```
+#include<stdio.h>
+#include<string.h>
+void reverse(char *str);
+int main()
+{
+char *s[20];
+printf("Enter a string:");
+gets(s);
+reverse(s);
+puts(s);
+}
+void reverse(char *str)
+{
+char *start=str;
+char *end=str+strlen(str)-1;
+char temp;
+while(start<end)
+{
+temp=*start;
+*start=*end;
+*end=temp;
+start++;
+end--;
+}
+}
+```
+# output
+```
+Enter a string:program
+margorp
+```
+# 25.Sum of elements of an array using pointer arithmetic
+```
+#include<stdio.h>
+int main()
+{
+int arr[5]={1,2,3,4,5};
+int *ptr=arr;
+int sum=0;
+for(int i=0;i<5;i++)
+{
+sum+=*(ptr+i);
+}
+printf("%d\n",sum);
+}
+```
+# output
+```
+15
+```
+# 26.Copying a string into another without using cpy and using pointers
+```
+#include<stdio.h>
+void strcopy(char *s,char *d);
+int main()
+{
+char *str="viven";
+char *des[10];
+strcopy(str,des);
+printf("%s",des);
+}
+void strcopy(char *s,char *d)
+{
+while(*s != '\0')
+{
+*d=*s;
+s++;
+d++;
+}
+}
+```
+# output
+```
+viven
+```
+# 27.Comparing two strings lixicographically using pointers
+```
+#include<stdio.h>
+int lex(char *s1,char *s2);
+int main()
+{
+char *s1="Ramya";
+char *s2="Ramya";
+printf("%d\n",lex(s1,s2));
+}
+int lex(char *s1,char *s2)
+{
+while(*s1 && *s2)
+{
+if(*s1!=*s2)
+{
+return *s1-*s2;
+}
+s1++;
+s2++;
+}
+return *s1-*s2;
+}
+```
+# output
+```
+0
+```
+# 28.Reversing an array using pointers
+```
+#include<stdio.h>
+int rev(int *a,int n);
+int main()
+{
+int a[5]={1,2,3,4,5};
+rev(a,5);
+for(int i=0;i<5;i++)
+{
+printf("%d ",a[i]);
+}
+}
+int rev(int *a,int n)
+{
+int *ptr=a,temp;
+for(int i=0;i<=n/2;i++)
+{
+temp=*(ptr+i);
+*(ptr+i)=*(ptr+n-i-1);
+*(ptr+n-i-1)=temp;
+}
+}
+```
+# output
+```
+5 4 3 2 1
+```
+# 29.Printing an array by dynamic memory allocation
+```
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+int *ptr=(int *)malloc(5*sizeof(int));
+printf("Enter array elements:");
+if(ptr==NULL)
+{
+printf("Memory not available ");
+exit(1);
+}
+for(int i=0;i<5;i++)
+{
+scanf("%d",ptr+i);
+}
+for(int i=0;i<5;i++)
+{
+printf("%d ",*(ptr+i));
+}
+}
+```
+# output
+```
+Enter array elements:1 2 3 4 5
+1 2 3 4 5
+```
+# 30.Factorial of a number using pointers
+```
+#include<stdio.h>
+int fact(int *n,int *factorial);
+int main()
+{
+int num=5;
+int factorial;
+fact(&num,&factorial);
+printf("%d\n",factorial);
+}
+int fact(int *n,int *factorial)
+{
+*factorial=1;
+for(int i=1;i<=*n;i++)
+{
+*factorial *= i;
+}
+}
+```
+# output
+```
+120
+```
+# 31.Counting no.of vowels and consonants using pointers
+```
+#include<stdio.h>
+#include<ctype.h>
+void consvow(char *str,int *vowel,int *consonant);
+int main()
+{
+char *str="radha123";
+int vowel,consonant;
+consvow(str,&vowel,&consonant);
+printf("%d  %d\n",vowel,consonant);
+}
+void consvow(char *str,int *vowel,int *consonant)
+{
+*vowel=0;
+*consonant=0;
+while(*str != '\0')
+{
+char ch = tolower(*str);
+if(*str >= 'a' && *str <= 'z')
+{
+if(*str=='a'||*str=='e'||*str=='i'||*str=='o'||*str=='u')
+{
+(*vowel)++;
+}
+else
+{
+(*consonant)++;
+}
+}
+str++;
+}
+}
+```
+# output
+```
+2  3
+```
+# 32.Sorting an array using pointers
+```
+#include<stdio.h>
+void sort(int *arr,int *n,int *min);
+int main()
+{
+int arr[8]={2,53,21,12,6,4,76,75};
+int n=8,min=arr[0];
+sort(arr,&n,&min);
+for(int i=0;i<n;i++)
+{
+printf("%d ",arr[i]);
+}
+}
+void sort(int *arr,int *n,int *min)
+{
+int *i,*j;
+for(i=arr;i<arr + *n -1;i++)
+{
+for(j=i+1;j < arr + *n;j++)
+{
+if(*i > *j)
+{
+int temp=*i;
+*i=*j;
+*j=temp;
+}
+}
+}
+}
+```
+# output
+```
+2 4 6 12 21 53 75 76
+```
+# 33.Function returning a pointer
+```
+#include<stdio.h>
+int *fun(int *p,int n);
+int main()
+{
+int arr[5]={1,2,3,4,5};
+int n=5;
+int *ptr;
+ptr=fun(arr,n);
+printf("%p",ptr);
+}
+int *fun(int *p,int n)
+{
+p=p+n;
+return p;
+}
+```
+# output
+```
+0x7fff1a4ef794
+```
+# 34.Searching an element 
+```
+#include<stdio.h>
+void search(int *a,int n,int target);
+int main()
+{
+int a[8]={1,2,3,4,5,6,7,8};
+int target=12;
+int n=8;
+search(a,n,target);
+}
+void search(int *a,int n,int target)
+{
+int *ptr=a;
+for(int i=0;i<n;i++)
+{
+if(*ptr==target)
+{
+printf("Element found at %d\n",i);
+return;
+}
+ptr++;
+}
+printf("Element not found");
+}
+```
+# output
+```
+Element not found
+```
+# 35.Addition of two integers using pointers
+```
+#include<stdio.h>
+int mat(int (*mat1)[3],int (*mat2)[3],int (*mat3)[3]);
+int main()
+{
+int mat1[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+int mat2[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+int mat3[3][3];
+mat(mat1,mat2,mat3);
+for(int i=0;i<3;i++)
+{
+for(int j=0;j<3;j++)
+{
+printf("%d ",mat3[i][j]);
+}
+printf("\n");
+}
+}
+int mat(int (*mat1)[3],int (*mat2)[3],int (*mat3)[3])
+{
+for(int i=0;i<3;i++)
+{
+for(int j=0;j<3;j++)
+{
+*(*(mat3+i)+j)=*(*(mat1+i)+j)+*(*(mat2+i)+j);
+}
+}
+}
+```
+# output
+```
+2 4 6 
+8 10 12 
+14 16 18 
+```
+# 36.Multiplication of two matrices
+```
+#include<stdio.h>
+int mat(int (*mat1)[4],int (*mat2)[3],int (*mat3)[3]);
+int main()
+{
+int mat1[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+int mat2[4][3]={{12,11,10},{8,7,6},{4,3,2},{9,5,1}};
+int mat3[3][3];
+mat(mat1,mat2,mat3);
+for(int i=0;i<3;i++)
+{
+for(int j=0;j<3;j++)
+{
+printf("%d ",mat3[i][j]);
+}
+printf("\n");
+}
+}
+int mat(int (*mat1)[4],int (*mat2)[3],int (*mat3)[3])
+{
+for(int i=0;i<3;i++)
+{
+for(int j=0;j<3;j++)
+{
+*(*(mat3+i)+j)=0;
+for(int k=0;k<4;k++)
+{
+*(*(mat3+i)+j)+=*(*(mat1+i)+k) * *(*(mat2+k)+j);
+}
+}
+}
+}
+```
+# output
+```
+76 54 32 
+208 158 108 
+340 262 184 
+```
+# 37.Concatinating two strings using pointers
+```
+#include<stdio.h>
+void concat(char *s1,char *s2,char *ptr);
+int main()
+{
+char *s1="Ramya";
+char *s2="Rani";
+char *str[15];
+concat(s1,s2,&str);
+printf("%s",str);
+}
+void concat(char *s1,char *s2,char *ptr)
+{
+while(*s1 != '\0')
+{
+*ptr=*s1;
+ptr++;
+s1++;
+}
+while(*s2 != '\0')
+{
+*ptr=*s2;
+ptr++;
+s2++;
+}
+}
+```
+# Output
+```
+RamyaRani
+```
+# 38.Dynamically allocate a 2d array using pointer to an array
+```
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+int r=3;
+int (*ptr)[4];
+ptr=(int (*)[4])malloc(r*4*sizeof(int));
+printf("Enter array elements:\n");
+for(int i=0;i<r;i++)
+{
+for(int j=0;j<4;j++)
+{
+scanf("%d",&ptr[i][j]);
+}
+}
+for(int i=0;i<3;i++)
+{
+for(int j=0;j<4;j++)
+{
+printf("%d ",ptr[i][j]);
+}
+printf("\n");
+}
+}
+```
+# output
+```
+Enter array elements:
+1 2 3 4 5 6 7 8 9 10 11 12
+1 2 3 4 
+5 6 7 8 
+9 10 11 12 
+```
+# 39.Array of pointer
+```
+#include<stdio.h>
+int main()
+{
+int *a[5];
+int arr[5]={1,2,3,4,5};
+for(int i=0;i<5;i++)
+{
+a[i]=&arr[i];
+}
+for(int i=0;i<5;i++)
+{
+printf("%p ",a[i]);
+}
+}
+```
+# output
+```
+0x7ffcccf6ac70 0x7ffcccf6ac74 0x7ffcccf6ac78 0x7ffcccf6ac7c 0x7ffcccf6ac80
+```
+# 40.Pointer to an array
+```
+#include<stdio.h>
+int main()
+{
+int (*a)[5];
+int arr[5]={1,2,3,4,5};
+a=&arr;
+printf("%d\n",*(*(a)));
+printf("%p\n",a);
+printf("%p\n",++a);
+}
+```
+# output
+```
+1
+0x7fffdbd723d0
+0x7fffdbd723e4
+```
+# 41.Invoking a function using function pointer
+```
+#include<stdio.h>
+int fun(int a,int b);
+int main()
+{
+int (*fp)(int a,int b);
+int a=5,b=2;
+fp=fun;
+int r=(*fp)(a,b);
+printf("%d\n",r);
+}
+int fun(int a,int b)
+{
+if(a>b)
+{
+return a;
+}
+else
+{
+return b;
+}
+}
+```
+# output
+```
+5
+```
+# 42.Sending functions address as an argument to another function
+```
+#include<stdio.h>
+void fun(char c,void (*f1)(int));
+void function(int);
+int main()
+{
+fun('a',function);
+}
+void fun(char c,void (*f1)(int))
+{
+printf("%c ",c);
+(*f1)(5);
+}
+void function(int d)
+{
+printf("%d\n",d);
+}
+```
+# output
+```
+a 5
+```
+# 43.Passing a pointer containing functions address as an argument
+```
+#include<stdio.h>
+void fun(char c,void (*fp)(int));
+void f1(int a);
+int main()
+{
+void (*p)(int);
+p=f1;
+fun('a',p);
+}
+void fun(char c,void (*fp)(int))
+{
+printf("%c\n",c);
+(*fp)(5);
+}
+void f1(int a)
+{
+printf("%d\n",a);
+}
+```
+# output
+```
+a
+5
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
