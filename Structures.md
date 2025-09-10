@@ -87,6 +87,177 @@ int main()
 Float value(before modification):0.000000
 Float value(after modification):3.140000
 ```
+# 5.
+```c
+#include<stdio.h>
+typedef struct
+{
+        char A;
+        int B;
+        char C;
+}InfoData;
+int main(int argc,char *argv[])
+{
+        printf("\n size of structure=%ld\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+size of structure=12
+```
+# 6.
+```c
+#include<stdio.h>
+typedef struct
+{
+        double A;
+        char B;
+        char C;
+}InfoData;
+int main(int argc,char *argv[])
+{
+        printf("\n size of structure=%ld\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+ size of structure=16
+```
+# 7.
+```c
+#include<stdio.h>
+typedef struct
+{
+        int A;
+        int B;
+        char C;
+        char D;
+        float E;
+}InfoData;
+int main(int argc,char *argv[])
+{
+        printf("\n size of structure =%ld\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+size of structure=16
+```
+# 8.
+```c
+#include<stdio.h>
+typedef struct
+{
+        char A;
+        char B;
+}InfoData;
+int main(int argc,char *argv[])
+{
+        printf("\n size of structure=%ld\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+2
+```
+# 9.
+```c
+#include<stdio.h>
+typedef struct
+{
+        char A;
+        short B;
+        int C;
+        char D;
+}InfoData;
+int main(int argc,char *argv[])
+{
+        printf("\n size of structure=%d\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+12
+```
+# 10.
+```c
+#include<stdio.h>
+typedef struct
+{
+        char A;
+        double B;
+        char C;
+}InfoData;
+int main()
+{
+        printf("\n sizeof structure=%d\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+24
+```
+# 11.
+```c
+#include<stdio.h>
+typedef struct
+{
+        char A;
+        char B;
+        short C;
+        int D;
+}InfoData;
+int main()
+{
+        printf("\n size of structure = %d\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+8
+```
+# 12.
+```c
+#include<stdio.h>
+#pragma pack(push,1)
+typedef struct
+{
+        double A;
+        char B;
+}InfoData;
+#pragma pack(pop)
+int main(int argc,char *argv[])
+{
+        printf("\n size of structure = %ld\n\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+9
+```
+# 13.
+```c
+#include<stdio.h>
+#pragma pack(push,4)
+typedef struct
+{
+        double A;
+        char B;
+}InfoData;
+#pragma pack(pop)
+int main()
+{
+        printf("\n size of structure = %d\n\n\n\n",sizeof(InfoData));
+}
+```
+# output
+```
+12
+```
+
+
+
+
 
 
 
