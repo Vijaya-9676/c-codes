@@ -1,6 +1,6 @@
 ## Code Snippets
 # 1.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -19,7 +19,7 @@ int main()
 0x7ffe77056b34	0x7ffe77056b58
 ```
 # 2.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -40,7 +40,7 @@ int main()
 5
 ```
 # 3.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -93,7 +93,7 @@ int main()
 12	0x7fffceefe29c
 ```
 # 4.
-```
+```c
 include<stdio.h>
 int main()
 {
@@ -135,7 +135,7 @@ int main()
 18	0x7fff58e63434
 ```
 # 5.
-```
+```c
 #include<stdio.h>
 #include<string.h>
 void rev(char *str);
@@ -164,7 +164,7 @@ while(start<=end)
 eertnez
 ```
 # 6.
-```
+```c
 #include<stdio.h>
 void sort(int arr[],int *n);
 int main()
@@ -200,7 +200,7 @@ void sort(int arr[],int *n)
 0 2 3 4 5 6 7 10 
 ```
 # 7.
-```
+```c
 #include<stdio.h>
 int *fun(int a,int i);
 int main()
@@ -223,7 +223,7 @@ int *fun(int a,int i)
 0x7ffc419de014
 ```
 # 8.
-```
+```c
 #include<stdio.h>
 struct student
 {
@@ -251,7 +251,7 @@ int main()
 }
 ```
 # 9.
-```
+```c
 #include<stdio.h>
 struct student
 {
@@ -285,7 +285,7 @@ Name:john
 Name:tom
 ```
 # 10.
-```
+```c
 #include<stdio.h>
 void search(int arr[],int n);
 int main()
@@ -313,7 +313,7 @@ int main()
 element 2 found at index 1
 ```
 # 11.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -343,7 +343,7 @@ int main()
 8 10 12
 ```
 # 12.
-```
+```c
 #include<stdio.h>
 void concat(char *str1,char *str2);
 int main()
@@ -371,7 +371,7 @@ void concat(char *str1,char *str2)
 viven123
 ```
 # 13.
-```
+```c
 #include<stdio.h>
 #include<stdlib.h>
 int main()
@@ -398,7 +398,7 @@ int main()
 1 2 3 4 5 6 7 8 9 10 
 ```
 # 14.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -424,7 +424,7 @@ int main()
 5   0x7ffc2bb9f340
 ```
 # 15.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -438,7 +438,7 @@ int main()
 0x7fff9a049450	2
 ```
 # 16.
-```
+```c
 #include<stdio.h>
 int add(int a,int b);
 int main()
@@ -461,7 +461,7 @@ int add(int a,int b)
 5	5
 ```
 # 17.
-```
+```c
 #include<stdio.h>
 void func(char,void (*fp)(float));
 void fun1(float);
@@ -486,7 +486,7 @@ A
 8.500000
 ```
 # 18.
-```
+```c
 #include<stdio.h>
 void func(char,void (*fp)(int));
 void fun1(int);
@@ -512,7 +512,7 @@ A
 8.500000
 ```
 # 19.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -526,7 +526,7 @@ int main()
 a=-10,b=9
 ```
 # 20.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -539,7 +539,7 @@ int main()
 1
 ```
 # 20.
-```
+```c
 #include<stdio.h>
 int func()
 {
@@ -557,7 +557,7 @@ printf("%d",*p);
 segmentatult(core dumped)
 ```
 # 21.
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -575,7 +575,7 @@ is�����
 ```
 ## PROGRAMS
 # 22.Length of stringg using pointers
-```
+```c
 #include<stdio.h>
 int len(char *s);
 int main()
@@ -601,7 +601,7 @@ Enter a string:programming
 11
 ```
 # 23.Min and max elements using pointers
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -633,7 +633,7 @@ if(*(ptr+i)>*max)
 2 12
 ```
 # 24.Reversing a string using pointers
-```
+```c
 #include<stdio.h>
 #include<string.h>
 void reverse(char *str);
@@ -666,7 +666,7 @@ Enter a string:program
 margorp
 ```
 # 25.Sum of elements of an array using pointer arithmetic
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -685,7 +685,7 @@ printf("%d\n",sum);
 15
 ```
 # 26.Copying a string into another without using cpy and using pointers
-```
+```c
 #include<stdio.h>
 void strcopy(char *s,char *d);
 int main()
@@ -710,7 +710,7 @@ d++;
 viven
 ```
 # 27.Comparing two strings lixicographically using pointers
-```
+```c
 #include<stdio.h>
 int lex(char *s1,char *s2);
 int main()
@@ -738,7 +738,7 @@ return *s1-*s2;
 0
 ```
 # 28.Reversing an array using pointers
-```
+```c
 #include<stdio.h>
 int rev(int *a,int n);
 int main()
@@ -766,7 +766,7 @@ temp=*(ptr+i);
 5 4 3 2 1
 ```
 # 29.Printing an array by dynamic memory allocation
-```
+```c
 #include<stdio.h>
 #include<stdlib.h>
 int main()
@@ -794,7 +794,7 @@ Enter array elements:1 2 3 4 5
 1 2 3 4 5
 ```
 # 30.Factorial of a number using pointers
-```
+```c
 #include<stdio.h>
 int fact(int *n,int *factorial);
 int main()
@@ -818,7 +818,7 @@ for(int i=1;i<=*n;i++)
 120
 ```
 # 31.Counting no.of vowels and consonants using pointers
-```
+```c
 #include<stdio.h>
 #include<ctype.h>
 void consvow(char *str,int *vowel,int *consonant);
@@ -856,7 +856,7 @@ str++;
 2  3
 ```
 # 32.Sorting an array using pointers
-```
+```c
 #include<stdio.h>
 void sort(int *arr,int *n,int *min);
 int main()
@@ -891,7 +891,7 @@ int temp=*i;
 2 4 6 12 21 53 75 76
 ```
 # 33.Function returning a pointer
-```
+```c
 #include<stdio.h>
 int *fun(int *p,int n);
 int main()
@@ -913,7 +913,7 @@ return p;
 0x7fff1a4ef794
 ```
 # 34.Searching an element 
-```
+```c
 #include<stdio.h>
 void search(int *a,int n,int target);
 int main()
@@ -943,7 +943,7 @@ printf("Element not found");
 Element not found
 ```
 # 35.Addition of two integers using pointers
-```
+```c
 #include<stdio.h>
 int mat(int (*mat1)[3],int (*mat2)[3],int (*mat3)[3]);
 int main()
@@ -979,7 +979,7 @@ for(int j=0;j<3;j++)
 14 16 18 
 ```
 # 36.Multiplication of two matrices
-```
+```c
 #include<stdio.h>
 int mat(int (*mat1)[4],int (*mat2)[3],int (*mat3)[3]);
 int main()
@@ -1019,7 +1019,7 @@ for(int k=0;k<4;k++)
 340 262 184 
 ```
 # 37.Concatinating two strings using pointers
-```
+```c
 #include<stdio.h>
 void concat(char *s1,char *s2,char *ptr);
 int main()
@@ -1051,7 +1051,7 @@ s2++;
 RamyaRani
 ```
 # 38.Dynamically allocate a 2d array using pointer to an array
-```
+```c
 #include<stdio.h>
 #include<stdlib.h>
 int main()
@@ -1086,7 +1086,7 @@ Enter array elements:
 9 10 11 12 
 ```
 # 39.Array of pointer
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -1107,7 +1107,7 @@ printf("%p ",a[i]);
 0x7ffcccf6ac70 0x7ffcccf6ac74 0x7ffcccf6ac78 0x7ffcccf6ac7c 0x7ffcccf6ac80
 ```
 # 40.Pointer to an array
-```
+```c
 #include<stdio.h>
 int main()
 {
@@ -1126,7 +1126,7 @@ printf("%p\n",++a);
 0x7fffdbd723e4
 ```
 # 41.Invoking a function using function pointer
-```
+```c
 #include<stdio.h>
 int fun(int a,int b);
 int main()
@@ -1154,7 +1154,7 @@ return b;
 5
 ```
 # 42.Sending functions address as an argument to another function
-```
+```c
 #include<stdio.h>
 void fun(char c,void (*f1)(int));
 void function(int);
@@ -1177,7 +1177,7 @@ printf("%d\n",d);
 a 5
 ```
 # 43.Passing a pointer containing functions address as an argument
-```
+```c
 #include<stdio.h>
 void fun(char c,void (*fp)(int));
 void f1(int a);
